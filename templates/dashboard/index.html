@@ -1,0 +1,23 @@
+{% extends 'partials/base.html' %}
+{% block title %}분류 예측{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <input type="submit" class="btn btn-primary" value="예측하기">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
