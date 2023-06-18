@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+{% block title %}파일 업로드로 AI 활용{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="text-muted">자전거 수요량 예측</h4>
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary">제출하기</button>
+                    </form>
+                </div>
+                {% if predict_count %}
+                <div class="card-body">
+                    <h5>자전거 수요량은 {{ predict_count }} 대로 예상합니다.</h5>
+                </div>
+                {% else %}
+                    <h5>자전거 수요량은 어느 정도 일까요?</h5>
+                {% endif %}
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+

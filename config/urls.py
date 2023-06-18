@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('dashboard.urls')),
     path('reg/', include("regression.urls")),
+    path('upload/', include("excel_upload.urls")),
 ]
